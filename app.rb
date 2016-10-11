@@ -1,15 +1,12 @@
 require 'sinatra'
 require 'shotgun'
 
-get '/' do
-  "Hello"
+get '/cat-form' do
+  erb :form
 end
 
-get '/secret' do
-    "The dog is barking!!"
-end
-
-get '/cat' do
-  @name = ["Amigo", "Oscar", "Viking"].sample
+post '/named-cat' do
+  p params
+  @name = params[:name]
   erb :index
 end
